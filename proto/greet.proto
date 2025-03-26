@@ -1,0 +1,18 @@
+// protoc --go_out=. --go-grpc_out=. proto/greet.proto
+
+syntax = "proto3";
+
+package greet;
+option go_package = "./greetpb";
+
+message GreetRequest {
+  string name = 1;
+}
+
+message GreetResponse {
+  string message = 1;
+}
+
+service GreetService {
+  rpc SayHello(GreetRequest) returns (GreetResponse);
+}
